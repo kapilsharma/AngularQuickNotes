@@ -1,22 +1,3 @@
----
-title: "Angular: Quick notes"
-author: Kapil Sharma
-date: "2018-10-27"
-keywords: [Markdown, Example]
-titlepage: true
-titlepage-color: FFFFFF
-titlepage-text-color: 555555
-titlepage-rule-color: 555555
-titlepage-rule-height: 10
-caption-justification: raggedright
-toc-own-page: false
-book: true
-logo: ../PHPReboot400x400.png
-logo-width: 200
-toc: true
-header-right: v 1.0
-footer-left: Kapil Sharma, PHP Reboot
-...
 
 # About these notes
 
