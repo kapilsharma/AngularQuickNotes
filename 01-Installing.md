@@ -57,7 +57,7 @@ Other that these 3 folders, you will find few files as well at root level. They 
 
 ### Changing output for First Application
 
-Let's develt everything in `app/app.component.html` and put simple code like
+Let's delete everything in `app/app.component.html` and put simple code like
 
 ```html
 <h1>
