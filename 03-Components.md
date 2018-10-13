@@ -109,7 +109,7 @@ Here, we added line 5, where we are importing our new component. Still, just imp
 
 With this, our application now loads our new component
 
-![Manual Component](./images/02-Components/ManualComponent.png)
+![Manual Component](./images/03-Components/ManualComponent.png)
 
 ### Creating a component using Angular CLI.
 
@@ -158,7 +158,7 @@ We also need to add our selector 'app-cli' (auto generated, check in ts file) in
 
 Now our generated output is as follow
 
-![Cli Component](./images/02-Components/CliComponent.png)
+![Cli Component](./images/03-Components/CliComponent.png)
 
 ## Component stylesheet
 
@@ -166,7 +166,7 @@ In above image, we can see manual component is in red and cli component is in bl
 
 However, if you were checking closely, you might be wondering that both components have `<p>` tag, then how angular manage to define separate styles for single tag. To understand this, lets use chrome's dev tools to check generated HTML code as shown in following image.
 
-![Dev tools](./images/02-Components/DevTools.png)
+![Dev tools](./images/03-Components/DevTools.png)
 
 As you might notice, `app-root` tag have a special attribute `_nghost-c0` and all the elements within it, including `app-manual` and `all-cli`, have attribute `_ngcontent-c0`. Here, `c0` is the name angular provided to `app-root`.
 

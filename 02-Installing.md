@@ -67,7 +67,7 @@ Let's delete everything in `app/app.component.html` and put simple code like
 
 The output will be as follow
 
-![Hellow World App](./images/01-Installing/HelloWorld.png)
+![Hellow World App](./images/02-Installing/HelloWorld.png)
 
 We can see `{{ title }}` has been replaced by `HelloWorldApp`. This is done in `app.component.ts` file.
 
@@ -84,7 +84,7 @@ export class AppComponent {
 }
 ```
 
-Notice line 9 `title = 'HelloWorldApp';`. This is actually where we are assigning value to a variable `title`, which is later used in `app.component.html` file. This is actually called ___String Interpolation___. Thus, if there is a variable in Type Script class, we can display it in HTML with String Interpolation like `{{ variableName }}`. We will learn more about it in 'Data Binding' section of next chapter 'Understanding component; Basic building block of Angular'.
+Notice line 9 `title = 'HelloWorldApp';`. This is actually where we are assigning value to the variable `title`, which is later used in `app.component.html` file. This is actually called ___String Interpolation___. Thus, if there is a variable in Type Script class, we can display it in HTML with String Interpolation like `{{ variableName }}`. We will learn more about it in 'Data Binding' section of next chapter 'Understanding component; Basic building block of Angular'.
 
 ## How our application works?
 
