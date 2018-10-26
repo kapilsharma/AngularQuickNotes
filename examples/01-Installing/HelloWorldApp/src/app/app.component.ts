@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'HelloWorldApp';
+  name = 'Kapil';
+  age = 0;
+
+  onChange(event: KeyboardEvent) {
+    this.name = (<HTMLInputElement>event.target).value;
+  }
 }

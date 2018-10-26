@@ -1,5 +1,13 @@
 <h1>
   Hello {{ title }}!
 </h1>
+<p>Enter your name <input type="text" (input)="onChange($event)" /></p>
+<p>Enter your age <input type="text" [(ngModel)]="age" /></p>
+<div>
+  <span>Hello </span>
+  <span [innerHtml]="name"></span>.
+  <span>You are {{ age }} years old.</span>
+</div>
+
 <app-manual></app-manual>
 <app-cli></app-cli>

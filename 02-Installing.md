@@ -22,7 +22,7 @@ Angular CLI makes it very easy to work with Angular. We mostly develop Angular A
 We can install Angular CLI globally with following command
 
 ```bash
-npm inatall -g @angular/cli
+npm install -g @angular/cli
 ```
 
 ## First Angular Application
