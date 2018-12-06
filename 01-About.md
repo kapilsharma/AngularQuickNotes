@@ -28,7 +28,7 @@ ___Jet Brains___ is expert in providing great IDE like PHP Storm, Web Storm, Int
 
 ## About this book
 
-Right from his days as student, Kapil preferred to make notes for quick revision. Now a days, he is making his motes in markdown. This book is mostly Kapil's notes he made while learning Angular but updated a bit to be distributed as a EBook.
+Right from his days as student, Kapil preferred to make notes for quick revision. Now a days, he is making his notes in markdown. This book is mostly Kapil's notes made while learning Angular but updated a bit to be distributed as a EBook.
 
 This book will be always work in progress. Once the training finishes, I will keep updating book updated with latest version and tips and tricks of Angular. You can check the version of book on title page and in the header of every single page in the pdf. You can go to Book's [GitHub repository](https://github.com/kapilsharma/AngularQuickNotes)[^1.6] to check latest version. If you have older version, you can always download latest version from [PDF Link](https://github.com/kapilsharma/AngularQuickNotes/blob/master/AngularQuickNotes.pdf)[^1.7].
 
