@@ -1,6 +1,6 @@
 # Components Continued
 
-Now we have our basic course project ready, we cna continue working on that while learning new things. We have two goals here:
+Now we have our basic course project ready, we can continue working on that while learning new things. We have two goals here:
 
 - Learn and apply new features of angular.
 - Learn and apply best practices.
@@ -26,7 +26,7 @@ Thus, we should have ListComponent under ToDo component. Let's create a new 'Lis
 ng generate component to-do/list --no-spec
 ```
 
-Now, since we need to load out ToDo list from ListComponent, let's move code of 'to-do.component.html' to 'list.component.html'. With this, we now need to load ListComponent in ToDoComponent.
+Now, since we need to load our ToDo list from ListComponent, let's move code of 'to-do.component.html' to 'list.component.html'. With this, we now need to load ListComponent in ToDoComponent.
 
 **app/to-do/to-do.component.html**
 
@@ -46,7 +46,7 @@ We already learned about property binding. By property binding, we assign some v
 
 **What is component?**
 
-If you see the components in angular, we are creating new HTML elements, for example `<app-list>`. Normal HTML elements contain properties like `checked` property in `<input type="checkbox">`. This is meta data to the a HTML element, which tell if checkbox is selected or not.
+If you see the components in angular, we are creating new HTML elements, for example `<app-list>`. Normal HTML elements contain properties like `checked` property in `<input type="checkbox">`. This is meta data to the HTML element, which tell if checkbox is selected or not.
 
 Similarly, on our custom HTML elements (components), we can have some meta-data, which we need to pass through HTML.
 
@@ -96,7 +96,7 @@ Here, we added new property binding `[toDos]="toDos"`. It could be confusing due
 
 ## Custom event binding - Passing data from child to parent component
 
-In last section, we learned to use custom property binding to pass data from parent to child component. Similarly, we can use custom event binding to pass data from chile to parent component.
+In last section, we learned to use custom property binding to pass data from parent to child component. Similarly, we can use custom event binding to pass data from child to parent component.
 
 **What is event?**
 
@@ -179,7 +179,7 @@ We imported FormsModule in line 3 and added in imports array in line 21.
 
 This is a simple form designed using bootstrap 4. It have a text field, a select field and a button. 
 
-> **Please note, we are not using HTML form. Do not wrap our form in `<form>` tag. If you do this, it will not work. Just avoid using <form> tag for now, we will learn more about it in 'Forms' chapter.**
+> **Please note, we are not using HTML form. Do not wrap our form in `<form>` tag. If you do this, it will not work. Just avoid using `<form>` tag for now, we will learn more about it in 'Forms' chapter.**
 
 First things to notice in our HTML file, we used two-way data binding in line 10 and 14. You can correctly assume we are having variable 'name' and 'category' in our TS class.
 
@@ -280,7 +280,7 @@ Once a custom event is fired, binding to it is similar to event binding.
 <app-list [toDos]="toDos"></app-list>
 ```
 
-We added `(toDoAdded)="onToDoAdded($event)"` which is just event binding, only difference, 'toDoAdded' is not a builtin event but we created it. On this event, we are 'onToDoAdded' function of TS file.
+We added `(toDoAdded)="onToDoAdded($event)"` which is just event binding, only difference, 'toDoAdded' is not a builtin event but we created it. On this event, we added 'onToDoAdded' function of TS file.
 
 **app/to-do/to-do.component.ts**
 
@@ -299,7 +299,7 @@ We added `(toDoAdded)="onToDoAdded($event)"` which is just event binding, only d
 
 At line 53, add above code in to-do.component.ts file. We knew what data our event contains. Thus, as parameter, we told angular that variable toDo is a JS object which contains name and category property.
 
-On line 57, we simply Java Script Array's push method to add new data to the existing toDos array.
+On line 57, we simply use Java Script Array's push method to add new data to the existing toDos array.
 
 > Since the same array is passed to ListComponent, our list will be automatically updated.
 
@@ -320,7 +320,7 @@ Let's assume heading of our 'Create' and 'List' component is dynamic, which shou
 <app-list [toDos]="toDos">ToDo List</app-list>
 ```
 
-We defined title of component within component tags. However, it will not take effect. For this to take effect, we need to update html file of respsctive components.
+We defined title of component within component tags. However, it will not take effect. For this to take effect, we need to update html file of respective components.
 
 **app/to-do/create/create.component.html**
 
@@ -387,7 +387,7 @@ Note, in line 5, where we want to display HTML with component's selector, we add
 </div>
 ```
 
-Since out list was not having title earlier, we added line 3-5 to add new header and the HTML of component's selector. Our application ow looks as follow
+Since out list was not having title earlier, we added line 3-5 to add new header and the HTML of component's selector. Our application now looks as follow
 
 ![ng-content](./images/05-ComponentContinued/ng-content.png)
 
@@ -429,7 +429,7 @@ We just want variable in one way; from HTML to Type Script. In Data binding sect
 </div>
 ```
 
-Now we removed tow way binding from line 10 and 14. We actually replaced them with '#name' and '#category' respectively. We actually assigned them a name or `Local Reference`.
+Now we removed two way binding from line 10 and 14. We actually replaced them with '#name' and '#category' respectively. We actually assigned them a name or `Local Reference`.
 
 Local Reference is a name given to some element, that we can later use in same file. We are using this local reference in line 21 `(click)="onAddToDo(name, category)"`, where we are passing values as parameters of event. We obviously need to update our TS file to accept these new parameters.
 
@@ -464,7 +464,7 @@ export class CreateComponent implements OnInit {
 }
 ```
 
-we removed class variables 'name' and 'category' and updated onAddToDo function on line 20. Worried how to identify parameter type as HTMLInputElement and HTMLSelectElement? Just go back to Event Binding section again to revise how cna we identify them, is case we do not remember them.
+we removed class variables 'name' and 'category' and updated onAddToDo function on line 20. Worried how to identify parameter type as HTMLInputElement and HTMLSelectElement? Just go back to Event Binding section again to revise how can we identify them, is case we do not remember them.
 
 > Code till here is committed in branch `v0.1.4`
 
@@ -509,7 +509,7 @@ We first need to create two variables to hold the value of local reference. We d
 
 Since we are using ViewChild and ElementRef, we obviously imported them in line 1.
 
-In our onAddToDo function, we no longer needs parameters so we removed them from here and in HTMl file as well. However, with this, we needed to change the way of assigning value.
+In our onAddToDo function, we no longer needs parameters so we removed them from here and in HTML file as well. However, with this, we needed to change the way of assigning value.
 
 We moved away from two way binding to local reference to remove local variable and now we added them again. However, now they are only one way binding (HTML->TS) and we can not change them in HTML accidentally. Thus, angular provide us different tools to be used in different situations, which tool to use depends on actual project condition.
 
