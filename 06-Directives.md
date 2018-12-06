@@ -2,7 +2,7 @@
 
 Directives are the most basic building block of an Angular application.
 
-Opps! Didn't we said same about components? Yes, we were right and we are right. Component is just an example of directive. Component is a directive with template.
+Oops! Didn't we said same about components? Yes, we were right and we are right. Component is just an example of directive. Component is a directive with template.
 
 Directives are used to extend the power of HTML attributes and shape(reshape) DOM's structure.
 
@@ -130,7 +130,7 @@ As the name suggest, ngIf add the element to the DOM if condition is true. For e
       </tr>
 ~~~
 
-As you may notice in line 22, `*ngIf="toDo.done"` is doing the trick. With this, out delete button will be added only if task is completed. Also note, if task is not done, button will not be hidden, it simple won't be present (added).
+As you may notice in line 22, `*ngIf="toDo.done"` is doing the trick. With this, our delete button will be added only if task is completed. Also note, if task is not done, button will not be hidden, it simple won't be present (added).
 
 > Code till here is committed in branch `v6.4.2`.
 
