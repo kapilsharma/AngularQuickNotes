@@ -7,7 +7,7 @@ Components are the core of an Angular application. Every angular application hav
 - HTML file (name.component.html)
     - Although having this it is not mandatory as we can define HTML template in component decorator as well, but generally component HTML have multiple lines, which we mostly prefer to define in separate HTML file.
 - Styles file (name.component.css)
-    - It is style sheet for component's HTML. Like HTML, can can define CSS also in component decorator, but in most cases, to separate different type of code in different files, we mostly define styles in separate css file.
+    - It is style sheet for component's HTML. Like HTML, we can define CSS also in component decorator, but in most cases, to separate different type of code in different files, we mostly define styles in separate css file.
 - Tests (name.component.spec.ts)
     - This file contains test cases for the component. We will discuss how to write unit tests for angular application but for most of the training, we will concentrate to understand different angular features. Thus, until we discuss about unit tests, we will not use this file in any component.
 
@@ -24,13 +24,13 @@ Let's check both of them one by one.
 
 We already discussed that a component generally have 3 files; TypeScript class, HTML Template and CSS styles.
 
-In out HelloWorldApp, lets create a new component to display 'Manual compoent'.
+In out HelloWorldApp, lets create a new component to display 'Manual component'.
 
 As we discussed in `Section 2.4 How our application works?`, a module bootstraps only one component and we already bootstraped 'AppComponent'. All other components, now should be called or loaded from AppComponent.
 
-> Separate folder for each component: A complex angular application contains many components. Thus, as good a good coding practice, we should create separate folder for each component and they should follow hirarchical order. For example, if app component is going to load 'ManualComponent', it must be in 'app/manual' folder.
+> Separate folder for each component: A complex angular application contains many components. Thus, as a good coding practice, we should create separate folder for each component and they should follow hierarchical order. For example, if app component is going to load 'ManualComponent', it must be in 'app/manual' folder.
 
-For this example, we are going to name our new componene as `ManualComponent`. Following coding best practices of angular, lets create folder `manual` in `app` folder. Then we need to create 3 files
+For this example, we are going to name our new component as `ManualComponent`. Following coding best practices of angular, lets create folder `manual` in `app` folder. Then we need to create 3 files
 
 **src/app/manual/manual.component.ts**
 
@@ -56,7 +56,7 @@ A Component decorator needs three things (as JS object)
 - templateUrl
     - It defines the template (HTML) for the component. As discussed earlier, in case we just have one or two line HTML, we can also define HTML directly here. In that case, we define template, instead of templateUrl. However, either 'template' or 'templateUrl' is mandatory.
 - styleUrls
-    - Please note, we have only one template but can have multiple style files for a component. Thus, it is styleUrls (Notice 's' at the end). Also, unlike template, it is and array, not string.
+    - Please note, we have only one template but can have multiple style files for a component. Thus, it is styleUrls (Notice 's' at the end). Also, unlike template, it is an array, not string.
     - Like templateUrl, we can also replace styleUrls with styles. Any one of them is mandatory.
 
 Lets also define manual.component.html, which is ideally just one line of code
@@ -82,7 +82,7 @@ We defined the component but we are still not using it anywhere. Lets use our ne
 <app-manual></app-manual>
 ```
 
-Although it seems we are done, we have one final step remaining. Angular still do not know about our new component and will throw an errer as soon as it comes across `app-manual` tag in app component's html. To tell angular about our new component, we must update `app.module.ts` file.
+Although it seems we are done, we have one final step remaining. Angular still do not know about our new component and will throw an error as soon as it comes across `app-manual` tag in app component's html. To tell angular about our new component, we must update `app.module.ts` file.
 
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
@@ -105,7 +105,7 @@ import { ManualComponent } from './manual/manual.component';
 export class AppModule { }
 ```
 
-Here, we added line 5, where we are importing our new component. Still, just importing a Type Script file will not work. In line 10, we are actually declaring our new component. Declaration means, angular will not immediately load this new component but will read its component decorator and will know about new tag. As soon as we use new tag in any component (app.component.html in our case), angular will load (create instance of ManualCompoent) our component there.
+Here, we added line 5, where we are importing our new component. Still, just importing a Type Script file will not work. In line 10, we are actually declaring our new component. Declaration means, angular will not immediately load this new component but will read its component decorator and will know about new tag. As soon as we use new tag in any component (app.component.html in our case), angular will load (create instance of ManualComponent) our component there.
 
 With this, our application now loads our new component
 
@@ -113,11 +113,11 @@ With this, our application now loads our new component
 
 ### Creating a component using Angular CLI.
 
-It is good to understand how angular components works. However, once we understand it, instead of creating components manually, we can use angular CLI to actually create our components. This will  fast track component creation, as single command can create all the required files as well as make necessary changes in module.ts file.
+It is good to understand how angular components works. However, once we understand it, instead of creating components manually, we can use angular CLI to actually create our components. This will  fast track component creation, as single command can create all the required files as well as make necessary changes in app.module.ts file.
 
 > Angular CLI starts with `ng` command. We already saw `ng new` and `ng serve` commands. They both were Angular CLI commands.
 
-Command to generare new component is `ng generate component <name>`. Angular CLI also comes with lot of short-cut command. Short cut command to generate component is `ng g c <name>`. Let's run `ng generate component cli` command to create new component 'CliComponent' through Angular CLI.
+Command to generate new component is `ng generate component <name>`. Angular CLI also comes with lot of short-cut command. Short cut command to generate component is `ng g c <name>`. Let's run `ng generate component cli` command to create new component 'CliComponent' through Angular CLI.
 
 ```bash
 ng generate component cli
@@ -170,9 +170,9 @@ However, if you were checking closely, you might be wondering that both componen
 
 As you might notice, `app-root` tag have a special attribute `_nghost-c0` and all the elements within it, including `app-manual` and `all-cli`, have attribute `_ngcontent-c0`. Here, `c0` is the name angular provided to `app-root`.
 
-Similarly, `app-manual` and `app-cli` have attributes `_nghost-c1` and `nghost-c2` and all element within them (only 'p' tag) have attributes `_ngcontent-c1` and `_ngcontent-c2` respectively. Thus, angular provided them name as `c1` and `c2`.
+Similarly, `app-manual` and `app-cli` have attributes `_nghost-c1` and `nghost-c2` respectively and all element within them (only 'p' tag) have attributes `_ngcontent-c1` and `_ngcontent-c2` respectively. Thus, angular provided them name as `c1` and `c2`.
 
-This way, angular may identify different components. In the same image, 'p' tag under `app-manual` is selected and its styles are loaded on right hand side. Please note, angular have not generated generic style for `p` tag but for `p[_ngcontent-c1]` tag. In this way, angular makes sure the style we defined for an individual components, affets only that component. We will later learn how to define generic style that may be applied to all elements, regardless of component.
+This way, angular may identify different components. In the same image, 'p' tag under `app-manual` is selected and its styles are loaded on right hand side. Please note, angular have not generated generic style for `p` tag but for `p[_ngcontent-c1]` tag. In this way, angular makes sure the style we defined for an individual components, affects only that component. We will later learn how to define generic style that may be applied to all elements, regardless of component.
 
 ## Data Binding
 
@@ -187,17 +187,17 @@ Data binding is a way of communication between Type Script (Business Logic) and 
 
 ### String interpolation
 
-We already seen the example of string interpolation. We devined variable `title` in `app.component.ts` of our HelloWorldApp. Later, we displayed it in `app.component.html` using string interpolation `{{ title }}`.
+We already seen the example of string interpolation. We defined variable `title` in `app.component.ts` of our HelloWorldApp. Later, we displayed it in `app.component.html` using string interpolation `{{ title }}`.
 
 As we can print variable in TS file to HTML file, in string interpolation, data flows from Type Script to HTML.
 
 ### Property Binding
 
-Like String Interpolation, data flows from Type Script to HTML for Property Binding as well. However, here property means some HTML property like img's src propoerty, button's disabled property, etc. Thus, if we want to show value of some variable on HMTL page, use string interpolation. However, if you want to control property (or attribute) of some HTML element, Property binding is used.
+Like String Interpolation, data flows from Type Script to HTML for Property Binding as well. However, here property means some HTML property like img's src property, button's disabled property, etc. Thus, if we want to show value of some variable on HMTL page, use string interpolation. However, if you want to control property (or attribute) of some HTML element, Property binding is used.
 
 > For both 'String Interpolation' and 'Property Binding' data flows from Type Script to HTML.
 > 
-> String Interpolation: Display valus of TS variable on DOM
+> String Interpolation: Display value of TS variable on DOM
 > 
 > Property Binding: Assign value of TS variable to HTML property
 
@@ -238,7 +238,7 @@ On line 5, we could although use String Interpolation like `<span>{{ name }}</sp
 
 In above example, both String Interpolation and Property Binding could be used, we can select anyone based on our requirements.
 
-> To understand properties and events of HTML, [MDN (Mozilla Developer Network) Web Docs](https://developer.mozilla.org/en-US/)[^3.1] is one of the best resources. Google is also developer's best friend. As an Angular developer, you need to manupulate HTML DOM a lot, thus understanding DOM, HTML elements and their properties and events is necessary. It is like vocabulary for Frontend developer. However, if you do not understand them right now, don't worry, understanding them is easy and with time and experience, you will be confortable. Just keep increasing your vocabulary.
+> To understand properties and events of HTML, [MDN (Mozilla Developer Network) Web Docs](https://developer.mozilla.org/en-US/)[^3.1] is one of the best resources. Google is also developer's best friend. As an Angular developer, you need to manipulate HTML DOM a lot, thus understanding DOM, HTML elements and their properties and events is necessary. It is like vocabulary for Frontend developer. However, if you do not understand them right now, don't worry, understanding them is easy and with time and experience, you will be comfortable. Just keep increasing your vocabulary.
 
 [^3.1]: https://developer.mozilla.org/en-US/
 
@@ -251,7 +251,7 @@ DOM regularly fire events based on user activity/input. Some example of events a
 - Mouse (left/right/wheel) clicked.
 - Key is pressed/down/up
 
-As a forntend developer, we need to react on these events and this is where event binding is useful. As you can assume, user activity happens on HTML (contents visible to user) but code to react on these events is business logic, which is written in Type Script. Thus, event binding sends data from HMTL to Type Script.
+As a frontend developer, we need to react on these events and this is where event binding is useful. As you can assume, user activity happens on HTML (contents visible to user) but code to react on these events is business logic, which is written in Type Script. Thus, event binding sends data from HMTL to Type Script.
 
 For example of Event Binding, let's add a input box on our app component. Whenever user enters something there, default name 'Kapil' should change to the name entered by user.
 
@@ -314,11 +314,11 @@ We added `onChange` function in Type Script between line 12-14.
 > }
 > ```
 >
-> - If we need to refer any variable of other function defined in calss, we can do this using `this.` keywork. This should be clear if you worked with any object oriented programming language. Unfortunately, OOPs is out of scope for this course. (PS: I'm planning OOP video as well. Keep checking my [YouTube channel](http://bit.ly/kapilyoutube)[^3.4]; Sorry for self-promotion but couldn't resist ;)
+> - If we need to refer any variable of other function defined in class, we can do this using `this.` keywork. This should be clear if you worked with any object oriented programming language. Unfortunately, OOPs is out of scope for this course. (PS: I'm planning OOP video as well. Keep checking my [YouTube channel](http://bit.ly/kapilyoutube)[^3.4]; Sorry for self-promotion but couldn't resist ;)
 
 [^3.4]: http://bit.ly/kapilyoutube
 
-`onChange` function is one line fucntion, which is crystal clear, we are assigning value of our input tag to variable name. However, looking at syntax, you may have following questions:
+`onChange` function is one line function, which is crystal clear, we are assigning value of our input tag to variable name. However, looking at syntax, you may have following questions:
 
 - How can I know event is of type 'KeyboardEvent'?
 - What is HTMLInputElement?
@@ -338,7 +338,7 @@ onChange(event: Event) {
 }
 ```
 
-Here, we added 3 `console.log` statements. It is java script syntax to log some value through JS. These logs can be seen in console of browser. Console outout should be like (Assuming you pressed 'K'):
+Here, we added 3 `console.log` statements. It is java script syntax to log some value through JS. These logs can be seen in console of browser. Console output should be like (Assuming you pressed 'K'):
 
 ```bash
 InputEvent
@@ -346,13 +346,13 @@ HTMLInputElement
 K
 ```
 
-If you have an object in java script, you can get it's class name but adding '`.constructor.name`' to the object. Thus, first log will tell us name of class of `event`, which is InputEvent, you can use it to write type of parameter.
+If you have an object in java script, you can get it's class name by adding '`.constructor.name`' to the object. Thus, first log will tell us name of class of `event`, which is InputEvent, you can use it to write type of parameter.
 
 Now (missing in code) you can do `console.log(event)` to inspect different properties of 'event' object. You will notice, it have a property 'target' which is again on object. When you extract 'target' you will find data entered in text box against `value` property.
 
 Still, `this.name = event.target.value;` will not work. You will get error 'value is not property of InputElement'. Here, second console statement `console.log(event.target.constructor.name);` will help you. It will tell us `event.target` is an object of `HTMLInputElement` class but our error mentioned 'InputElement'. Thus, we specifically need to tell Angular that `event.target` is an object of `HTMLInputElement`.
 
-We can cast (change) object by syntax `<castTo>object`. Thus, `<HTMLInputElement>event.target` will convert `target` to object of `HTMLInputelement`. Please note () for this whole syntax as we want to call `value` on casted object. Now `(<HTMLInputElement>event.target).value` must not looked like alien code and you should be able to solve similar problem in future.
+We can cast (change) object by syntax `<castTo>object`. Thus, `<HTMLInputElement>event.target` will convert `target` to object of `HTMLInputElement`. Please note () for this whole syntax as we want to call `value` on casted object. Now `(<HTMLInputElement>event.target).value` must not looked like alien code and you should be able to solve similar problem in future.
 
 Once you solve the problem, don't forget to remove `console.log` statements.
 
@@ -368,7 +368,7 @@ As the name suggest, two way binding synchronize data both Type Script to HMTL a
 
 Let's see example of Two-Way binding. In our Hello world app, let's also include a text box for age and change text to 'Hello Nane, you are x years old'.
 
-**app.comoponent.html**
+**app.component.html**
 
 ```html
 <h1>
@@ -386,7 +386,7 @@ Let's see example of Two-Way binding. In our Hello world app, let's also include
 <app-cli></app-cli>
 ```
 
-On line 5, we added a new test and input box. On inout box, we have `[(ngModel)]=age`. Here, as we will see, age is a variable in Type Script that we are alss displaying on Line 9.
+On line 5, we added a new test and input box. On input box, we have `[(ngModel)]=age`. Here, as we will see, age is a variable in Type Script that we are displaying on Line 9.
 
 **app.component.ts**
 
@@ -440,7 +440,7 @@ import { CliComponent } from './cli/cli.component';
 export class AppModule { }
 ~~~
 
-Here, we are importing FromsModule from angular forms on line 3. As we discussed, import is type script feature, and angular will not know about it until we add it under 'imports' attay. We did that in line 17 above. Now our page will looks like follow with age prepopulated and it will also change the text as soon as we change in age text box.
+Here, we are importing FromsModule from angular forms on line 3. As we discussed, import is type script feature, and angular will not know about it until we add it under 'imports' array. We did that in line 17 above. Now our page will looks like follow with age prepopulated and it will also change the text as soon as we change in age text box.
 
 ![Two Way Binding](./images/03-Components/TwoWayBinding.png)
 
