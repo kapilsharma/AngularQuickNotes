@@ -11,7 +11,7 @@ It is recommended to install Node JS using [`Node Version Manager (NVM)`](https:
 
 [^2.2]: https://github.com/creationix/nvm
 
-Intalling Node JS directly or through NVM is straight forward. Please google the latest information on installing Node JS.
+Installing Node JS directly or through NVM is straight forward. Please google the latest information on installing Node JS.
 
 ## Angular CLI
 
@@ -41,7 +41,7 @@ ng serve
 
 After that, open `localhost:4200` in the browser to check default application.
 
-### Directory Sctucture
+### Directory Structure
 
 At root level, in project, you will find 3 folders
 
@@ -67,7 +67,7 @@ Let's delete everything in `app/app.component.html` and put simple code like
 
 The output will be as follow
 
-![Hellow World App](./images/02-Installing/HelloWorld.png)
+![Hello World App](./images/02-Installing/HelloWorld.png)
 
 We can see `{{ title }}` has been replaced by `HelloWorldApp`. This is done in `app.component.ts` file.
 
@@ -111,7 +111,7 @@ To understand it in better way, let's check the source code of application in br
 
 What!! Our code from 'app.component.html' (`<H1>` tag) or 'app.component.ts' (`title` variable) is not there. How it is working then?
 
-We write angular code in Type Script, which is super set of Java Script but the browser do not understands Type Script. Thus, to display the page, angular needs to compile our application into Java Script.
+We write angular code in Type Script, which is super set of Java Script but the browser does not understands Type Script. Thus, to display the page, angular needs to compile our application into Java Script.
 
 Notice Line 13, here we are including few Java Script files
 
@@ -121,9 +121,9 @@ Notice Line 13, here we are including few Java Script files
 - vendor.js
 - main.js
 
-We didn't wrote any of these JS file. They are actually dependencies of Angular application and in this simple Hello World Application, main.js contains our actual source code. We can also notice line 12 `<app-root></app-root>`, which is updated by generated JS files to display out contents. However, let's not try to understand generated Java Script; Angular CLI makes sure that generated JS files are optimized but not very convenient to read by humans. Instead, let's concentrate on how Angular CLI read our application to generate these JS files.
+We didn't write any of these JS file. They are actually dependencies of Angular application and in this simple Hello World Application, main.js contains our actual source code. We can also notice line 12 `<app-root></app-root>`, which is updated by generated JS files to display out contents. However, let's not try to understand generated Java Script; Angular CLI makes sure that generated JS files are optimized but not very convenient to read by humans. Instead, let's concentrate on how Angular CLI read our application to generate these JS files.
 
-When we run `ng serve` (or `ng biuld`, as we will see later), Angular CLI first looks `angular.json` file to check the configurations. These configurations are well set and mostly we need not to touch them. From it, it identify main Type Script file is `src/main.ts` as follow:
+When we run `ng serve` (or `ng build`, as we will see later), Angular CLI first looks for `angular.json` file to check the configurations. These configurations are well set and mostly we need not to touch them. From it, it identify main Type Script file is `src/main.ts` as follow:
 
 ```typescript
 import { enableProdMode } from '@angular/core';
@@ -140,7 +140,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
 ```
 
-Here, first few lines are `import`. It is a Type Script feature in include other files in the program. Afther them, it sets environment (development, testing, staging, production, or as you wish). Then at line 11, `bootstrapModule` inform Angular CLI that `AppModule` is the first module to be initialized and actually is the starting point of our application. All files of `XyzModule` are stored in folder `src/xyz`. Thus, files of AppModule are stored in folder `src/app`.
+Here, first few lines are `import`. It is a Type Script feature that includes other files in the program. After that, it sets environment (development, testing, staging, production, or as you wish). Then at line 11, `bootstrapModule` informs Angular CLI that `AppModule` is the first module to be initialized and actually is the starting point of our application. All files of `XyzModule` are stored in folder `src/xyz`. Thus, files of AppModule are stored in folder `src/app`.
 
 To load App module, Angular CLI will first check `src/app/app.module.ts` file, which, by default, looks as follow
 
@@ -163,9 +163,9 @@ import { AppComponent } from './app.component';
 export class AppModule { }
 ```
 
-Here we get first important lession about angular, Type Script part of this file contains import statements (first four line) and an empty class (last line).
+Here we get our first important lesson about angular, Type Script part of this file contains import statements (first four line) and an empty class (last line).
 
-Line 6-15 looks like doc-block, or metadata about the class. In Angular, it is called decorator. Module Decorator, to be exact as it starts with `@NgModule`, which is imported from angular core library in line 2. It takes a Java Script object as an argument. This Java Script object contains few few important properties, most important here is `bootstrap` (line 14). This tells Angular CLI which component should be loaded first. For now, our application contains just one module and one component but as we start making complex applications, we will have multiple modules and each module will contain several components.
+Line 6-15 looks like doc-block, or metadata about the class. In Angular, it is called decorator. Module Decorator, to be exact as it starts with `@NgModule`, which is imported from angular core library in line 2. It takes a Java Script object as an argument. This Java Script object contains few important properties, most important here is `bootstrap` (line 14). This tells Angular CLI which component should be loaded first. For now, our application contains just one module and one component but as we start making complex applications, we will have multiple modules and each module will contain several components.
 
 Now angular knows it need to start with AppComponent, it will further check `app.component.ts` file.
 
@@ -184,4 +184,4 @@ export class AppComponent {
 
 Here, we can find Component Decorator. Most important to note is `selector`, which is `app-root`. If you remember, we saw `<app-root></app-root>` on line 11 of generated HTML. It tell angular, it need to replace `app-root` tag with `app component` and code of `app.component.html` will replace `app-root` on browser through generated java script.
 
-This is just high level view of how angular applications work. We are not ready to learn more about components, which are basic building blocks of an angular application.
+This is just high level view of how angular applications work. We are now ready to learn more about components, which are basic building blocks of an angular application.
