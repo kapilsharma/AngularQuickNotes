@@ -1,6 +1,6 @@
 # Course Project
 
-Making a practical application is always helpful while learning some new programming language or a framework. The application we make while learning need not to ba a client project. We can be our own client and think about an application, that we can use. Thus, to maximize our learning, we will be making an application, that we may use in our daily life.
+Making a practical application is always helpful while learning some new programming language or a framework. The application we make while learning need not to be a client project. We can be our own client and think about an application, that we can use. Thus, to maximize our learning, we will be making an application, that we may use in our daily life.
 
 ## Getting things done
 
@@ -19,15 +19,15 @@ However, we need to make an application, for practice and our own use. If you do
 
 1. Capture, Collect what has your attention
     - Use an in-basket, note pad, or voice recorder to capture 100% of everything that has you attention. Little, big, personal and professional--all your to-do's, project, things to handle or finish.
-    - For our allpication, we will place all the tasks as 'ToDo' in 'input' category, which is also our default categoty.
+    - For our application, we will place all the tasks as 'ToDo' in 'input' category, which is also our default category.
 2.  Clarify, Process what it mean
-    - Take everythingthat you capture and ask: Is it actionable? If no, then trash it, incubate it, of file it as reference. If yes, decide the very next action required. If it will take less than two minutes, do it now. If not, delegate it if you can; or put it on a list to do when you can.
+    - Take everything that you capture and ask: Is it actionable? If no, then trash it, incubate it, or file it as reference. If yes, decide the very next action required. If it will take less than two minutes, do it now. If not, delegate it if you can; or put it on a list to do when you can.
     - This is thinking step so our application will not have it. We can just show all the items in a particular category.
 3. Organize, Put it where it belongs
     - Put the action remainders on the right list. For example create lists for the appropriate categories--call to make, errands to run, emails to send etc.
     - In our application, we must provide a way to add/edit/delete categories, which will act as lists.
 4. Reflect, Review frequently
-    - Look over your listas often as necessaryto determine what to do next. Do a weekly review to clean up, update your lists, and clear your mind.
+    - Look over your list as often as necessary to determine what to do next. Do a weekly review to clean up, update your lists, and clear your mind.
     - This is again a thinking step. We will provide support to list ToDo based on different criteria like by category, by status, by due date (Not in course project but assignment), etc.
 5. Engage, Simply do
    - Use your system to take appropriate actions with confidence.
@@ -35,7 +35,7 @@ However, we need to make an application, for practice and our own use. If you do
 
 ## ToDo App
 
-We are making out ToDo App to achieve above steps through a web application.
+We are making our ToDo App to achieve above steps through a web application.
 
 ### Home page or ToDo List Page
 
@@ -69,7 +69,7 @@ Add ToDo page simply contains a form with a text field to enter ToDo, Drop down 
 
 ### Category list and Add Category
 
-Category list and add category pages are sililar to ToDo list and Add ToDo pages but they will be dealing with categories. We will completing ToDo pages and category pages will be there as assignment.
+Category list and add category pages are similar to ToDo list and Add ToDo pages but they will be dealing with categories. We will completing ToDo pages and category pages will be there as assignment.
 
 ## Creating assignment project
 
@@ -83,9 +83,9 @@ Let's create a new project `ToDoApp`, we already know the command:
 ng new ToDoApp
 ```
 
-This will create a new angular project. Open your project in your favorite editor/IDE. In this course, I'll be using PHP Storm, which is similar to Web Storm, with added support for PHP. PHP Storm is an IDE developed by Jet Brains, who is also sponsor of PHP Reboot community and provide free license of any Jet Brains IDS to be given as swags during meetups. In Corporate training of Angular on October 27th, 2018, two lisense will be raffled out. Web Storm, PHP Storm or most of other Jet Brains IDE have excellent suppoer for Java Script frameworks including Angular.
+This will create a new angular project. Open your project in your favorite editor/IDE. In this course, I'll be using PHP Storm, which is similar to Web Storm, with added support for PHP. PHP Storm is an IDE developed by Jet Brains, who is also sponsor of PHP Reboot community and provide free license of any Jet Brains IDS to be given as swags during meetups. In Corporate training of Angular on October 27th, 2018, two license will be raffled out. Web Storm, PHP Storm or most of other Jet Brains IDE have excellent support for Java Script frameworks including Angular.
 
-However, if you need any free alternative, Visual Studio code is supposed to have excellent support for Angular and is favorite editor of many Angular developers. You may also choose any other IDE/Editor, which you feel most confortable with.
+However, if you need any free alternative, Visual Studio code is supposed to have excellent support for Angular and is favorite editor of many Angular developers. You may also choose any other IDE/Editor, which you feel most comfortable with.
 
 ## Using Bootstrap
 
@@ -141,11 +141,11 @@ This gives us basic following layout with bootstrap
 </div>
 ```
 
-Here, commented 'Header', 'Add ToDo', and 'ToDoList' represents selector of respective componente. Let's start filling place holders by creating required components.
+Here, commented 'Header', 'Add ToDo', and 'ToDoList' represents selector of respective component. Let's start filling place holders by creating required components.
 
 ## Header component
 
-Let's create now component through Angular CLI.
+Let's create new component through Angular CLI.
 
 ```bash
 ng g c common/Header --no-spec
@@ -201,7 +201,7 @@ We first need to update app.component.html to include new ToDo component
 </div>
 ```
 
-Now, we need to update 'to-do.conponent.ts' to get our data. For now, let us hardcode data in Type Scritp file. As we progress in the course, we will see how to handle data in better way.
+Now, we need to update 'to-do.component.ts' to get our data. For now, let us hardcode data in Type Script file. As we progress in the course, we will see how to handle data in better way.
 
 **app/to-do/to-do.component.ts**
 
@@ -299,7 +299,7 @@ This is the default TS class generated by CLI, we just added a variable 'toDos' 
 
 In HTML file, line 1-12 and 22-25 are simple HTML and Bootstrap. Between line 13-21, we want to print table rows.
 
-Line 13 'tr' is simple HTML element to print table row. However, there is a special code `*ngFor="let toDo of toDos"`. This is called directive. We will discuss more about directives after components. Actually, component is also a directive with template. In short, directives are the instructions in the DOM, just like components instruct angular tochange a 'tag', directives are attributes which instruct angular to change DOM.
+Line 13 'tr' is simple HTML element to print table row. However, there is a special code `*ngFor="let toDo of toDos"`. This is called directive. We will discuss more about directives after components. Actually, component is also a directive with template. In short, directives are the instructions in the DOM, just like components instruct angular to change a 'tag', directives are attributes which instruct angular to change DOM.
 
 Here, we are using '*ngFor' directive, which is used to repeat an element for a given instance of time. It is much like 'foreach' loop of many programming languages. `let toDo of toDos` will take one element of toDos at a time and save is as `toDo`. This will be repeated for every element of the array.
 
