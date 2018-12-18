@@ -78,7 +78,7 @@ export class ToDoComponent implements OnInit {
 }
 ```
 
-Here, in line 12, we removed all the ToDo assignment in variable toDos. Here, after colon(:), we are defining that toDos variable will contain and array of ToDo objects. `Array<ToDo>` is Type Script syntax to define that.
+Here, in line 12, we removed all the ToDo assignment in variable toDos. Here, after colon(:), we are defining that toDos variable will contain an array of ToDo objects. `Array<ToDo>` is Type Script syntax to define that.
 
 We import ToDo model in line 3 and pushing new ToDo Model in the constructor Line 26-33.
 
@@ -94,7 +94,7 @@ Main purpose of service is to provide reusable code that we can reuse in multipl
 
 We just saw Models and like services, it is also a Type Script class, so what is the difference between Service & Model or any other TS class? Major difference is dependency injection.
 
-We already saw ToDo model class. With this, we are making new object of ToDo model in the constructor of our ToDoComponent. This is called a tight coupling, now our ToDoComponent is tightly coupled with ToDo modal class. This also make it difficult to test, which we will be discussing later in a chapter dedicated to testing. However, we need array of ToDo modals, how can we get rid of this tight coupling.
+We already saw ToDo model class. With this, we are making new object of ToDo model in the constructor of our ToDoComponent. This is called a tight coupling, now our ToDoComponent is tightly coupled with ToDo modal class. This also make it difficult to test, which we will be discussing later in a chapter dedicated to testing. However, we need array of ToDo models, how can we get rid of this tight coupling.
 
 > Whenever you use 'new' keyword, always think you are making a tight coupling. Is there any other way around?
 
@@ -102,7 +102,7 @@ We already saw ToDo model class. With this, we are making new object of ToDo mod
 
 Dependency injection is a programming concept, which makes our code loosely coupled. It says, instead of creating an instance where you need, pass that instance from a central place.
 
-Our components are also the classes that means, someone is creating their instances, who? Well, Angular do that for us. It create instance of our components. It can also create instance of other Type Script classes, provided we tell it how to do that. Services is just that way, Angular can create instance of services in an optimized way and may provide us same instance, where ever we need it.
+Our components are also classes that means, someone is creating their instances, who? Well, Angular do that for us. It create instance of our components. It can also create instance of other Type Script classes, provided we tell it how to do that. Services is just that way, Angular can create instance of services in an optimized way and may provide us same instance, where ever we need it.
 
 Let's understand it with an example.
 
@@ -110,7 +110,7 @@ Let's understand it with an example.
 
 Using ToDo Model, we removed big array from our ToDoComponent class. However, now we are creating instance of ToDo models in constructor. A 'new' keyword in ToDoComponent raise few questions.
 
-- Components are responsible to correctly show data. Is out ToDOComponent trying to do more that it should?
+- Components are responsible to correctly show data. Is our ToDoComponent trying to do more that it should?
 - ToDoComponent is creating instance of ToDo model, it is really responsible for it?
 - Is ToDo component following Single Responsibility Principle?
 
@@ -195,7 +195,7 @@ export class ToDoComponent implements OnInit {
 Now our component class is getting much simpler. Most important change is our constructor. You could notice `private toDoService: ToDoService` as parameter. This is Type Script's short cut to define private class variable. Example
 
 ```typescript
-export class PrivateClassVariableExampel {
+export class PrivateClassVariableExample {
     private classVariable: SomeClass;
     
     constructor(classVariable: SomeClass) {
@@ -207,7 +207,7 @@ export class PrivateClassVariableExampel {
 This code is exactly equivalent to
 
 ```typescript
-export class PrivateClassVariableExampel {
+export class PrivateClassVariableExample {
     constructor(private classVariable: SomeClass) {}
 }
 ```
@@ -224,13 +224,13 @@ With these changes, our application is working exactly as it was working earlier
 
 ### How Dependency Injection is working?
 
-In last example, we never created an object of ToDoService, yet it is available as constructor's parameter. Obviously someone or something is creating these objects. It is Angular, which is doing this job for us. However, we need to tell angular the strategy to create objects. In above example, Angular will create only one instance of ToDoService and pass same instance anywhere we was through Dependency Injection (parameter type). Thus, our ToDoService is virtually acting as Singleton class with only one instance (Virtually because you can create new instance with 'new' keyword). We actually told Angular to do this through `providedIn: 'root'` passed in parameter object of Injectable decorator.
+In last example, we never created an object of ToDoService, yet it is available as constructor's parameter. Obviously someone or something is creating these objects. It is Angular, which is doing this job for us. However, we need to tell angular the strategy to create objects. In above example, Angular will create only one instance of ToDoService and pass same instance anywhere we want through Dependency Injection (parameter type). Thus, our ToDoService is virtually acting as Singleton class with only one instance (Virtually because you can create new instance with 'new' keyword). We actually told Angular to do this through `providedIn: 'root'` passed in parameter object of Injectable decorator.
 
 There could be cases where we wish to create multiple instance of a service. We can tell this to angular.
 
 ### Hierarchical Injector
 
-Dependency Injection in angular needs to things:
+Dependency Injection in angular needs two things:
 
 - Provider: tells angular how and when to create a new instance and where to pass existing one.
 - Type-hinting: tells angular which class's object is needed.
@@ -335,7 +335,7 @@ A provider simply tell Angular to create a new instance of service for this Comp
 
 Service can also be used as data service. Why it is needed? In our list component, we need to show toDos. For this, we are using custom property binding to get toDos variable from parent component (ToDoComponent). This is fine for now as we need to pass data from immediate parent but in case there is a long hierarchy or we need to share data between two sibling components (Components having same parent), there will be a long chain of @Input() and @Output(). Thus, we can also use services to share data between two components distantly related. Let's see it with an example.
 
-First, since out ToDoService hold the list of toDos, we need not to pass that data from 'to-do.component.html' to 'lost.component.ts'. Let's first remove this.
+First, since our ToDoService hold the list of toDos, we need not to pass that data from 'to-do.component.html' to 'list.component.ts'. Let's first remove this.
 
 **app/to-do/to-do.component.html**
 
@@ -344,7 +344,7 @@ First, since out ToDoService hold the list of toDos, we need not to pass that da
 <app-list>ToDo List</app-list>
 ```
 
-We removed custom property binding from line 2. Since we are no having custom property binding, toDos variable in ListComponent may also be removed.
+We removed custom property binding from line 2. Since we are not having custom property binding, toDos variable in ListComponent may also be removed.
 
 **app/to-do/list/list.component.ts**
 

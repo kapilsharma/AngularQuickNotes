@@ -41,7 +41,7 @@ ng serve
 
 After that, open `localhost:4200` in the browser to check default application.
 
-### Directory Sctucture
+### Directory Structure
 
 At the root level, in the project, you will find 3 folders
 
@@ -69,7 +69,7 @@ Let's delete everything in `app/app.component.html` and put simple code like
 
 The output will be as follow
 
-![Hellow World App](./images/02-Installing/HelloWorld.png)
+![Hello World App](./images/02-Installing/HelloWorld.png)
 
 We can see `{{ title }}` has been replaced by `HelloWorldApp`. This is done in `app.component.ts` file.
 

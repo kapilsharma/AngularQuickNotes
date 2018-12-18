@@ -180,7 +180,7 @@ However, if you were checking closely, you might be wondering that both componen
 
 As you might notice, `app-root` tag have a special attribute `_nghost-c0` and all the elements within it, including `app-manual` and `all-cli`, have attribute `_ngcontent-c0`. Here, `c0` is the name angular provided to `app-root`.
 
-Similarly, `app-manual` and `app-cli` have attributes `_nghost-c1` and `nghost-c2` and all element within them (only 'p' tag) have attributes `_ngcontent-c1` and `_ngcontent-c2` respectively. Thus, angular provided them name as `c1` and `c2`.
+Similarly, `app-manual` and `app-cli` have attributes `_nghost-c1` and `nghost-c2` respectively and all element within them (only 'p' tag) have attributes `_ngcontent-c1` and `_ngcontent-c2` respectively. Thus, angular provided them name as `c1` and `c2`.
 
 This way, angular may identify different components. In the same image, 'p' tag under `app-manual` is selected and its styles are loaded on the right-hand side. Please note, angular have not generated generic style for `p` tag but for `p[_ngcontent-c1]` tag. In this way, angular make sure the style we defined for individual components, affects only that component. We will later learn how to define a generic style that may be applied to all elements, regardless of component.
 
@@ -364,7 +364,7 @@ Now (missing in code) you can do `console.log(event)` to inspect different prope
 
 Still, `this.name = event.target.value;` will not work. You will get error 'value is not property of InputElement'. Here, second console statement `console.log(event.target.constructor.name);` will help you. It will tell us `event.target` is an object of `HTMLInputElement` class but our error mentioned 'InputElement'. Thus, we specifically need to tell Angular that `event.target` is an object of `HTMLInputElement`.
 
-We can cast (change) object by syntax `<castTo>object`. Thus, `<HTMLInputElement>event.target` will convert `target` to object of `HTMLInputelement`. Please note () for this whole syntax as we want to call `value` on casted object. Now `(<HTMLInputElement>event.target).value` must not looked like alien code and you should be able to solve similar problem in future.
+We can cast (change) object by syntax `<castTo>object`. Thus, `<HTMLInputElement>event.target` will convert `target` to object of `HTMLInputElement`. Please note () for this whole syntax as we want to call `value` on casted object. Now `(<HTMLInputElement>event.target).value` must not looked like alien code and you should be able to solve similar problem in future.
 
 Once you solve the problem, don't forget to remove `console.log` statements.
 
